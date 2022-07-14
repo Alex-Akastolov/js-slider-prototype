@@ -102,7 +102,7 @@ Carousel.prototype = {
         this.prevBtn.addEventListener('click', this.prev.bind(this));
         this.nextBtn.addEventListener('click', this.next.bind(this));
         this.container.addEventListener('touchstart', this._swipeStart.bind(this));
-        this.container.addEventListener('touchend', this._swipeEnd);
+        this.container.addEventListener('touchend', this._swipeEnd.bind(this));
         this.indicatorContainer.addEventListener('click', this._indicate.bind(this));
         document.addEventListener('keydown', this._pressKey.bind(this));
     },
