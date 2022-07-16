@@ -1,104 +1,149 @@
-/*
-essential styles:
-these make the slideshow work
-*/
-
 .slides {
   position: relative;
-  height: 150px;
+  height: 100vh;
   padding: 0;
   margin: 0;
   list-style-type: none;
-  margin-bottom: 20px;
 }
 
 .slide {
   position: absolute;
   left: 0;
   top: 0;
-  bottom: 0;
-  right: 0;
   opacity: 0;
   z-index: -999;
-  transition: opacity 0.25s;
+  transition: opacity 1s;
 }
 
 .active {
   opacity: 1;
 }
 
-/*
-non-essential styles:
-just for appearance; change whatever you want
-*/
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   box-sizing: border-box;
 }
 .container {
-  max-width: 992px;
-  padding: 0 20px;
-  margin: auto;
+  max-width: 1920px;
+  padding: 0;
 }
 
 .slide {
-  font-size: 40px;
-  padding: 50px;
   box-sizing: border-box;
   background: #333;
-  color: #fff;
-  text-align: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
 }
 
 .slide:nth-of-type(1) {
-  background: red;
+  background-image: url("../img/photo_1.jpg");
 }
 
 .slide:nth-of-type(2) {
-  background: orange;
+  background-image: url("../img/photo_2.jpg");
 }
 
 .slide:nth-of-type(3) {
-  background: green;
+  background-image: url("../img/photo_3.jpg");
 }
 
 .slide:nth-of-type(4) {
-  background: blue;
+  background-image: url("../img/photo_4.jpg");
 }
 
 .slide:nth-of-type(5) {
-  background: purple;
+  background-image: url("../img/photo_5.jpg");
 }
 
 .controls {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
 }
 
 .control {
-  padding: 10px 20px;
-  background-color: gray;
-  display: block;
+  font-size: 50px;
   cursor: pointer;
   user-select: none;
+}
+
+.control-prev,
+.control-next,
+.control-pause {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-prev {
+  height: 100%;
+  left: 0;
+  color: rgba(white, 0.3);
+  transition: 0.5s;
+  width: 8%;
+  &:hover {
+    color: white;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  }
+}
+
+.control-next {
+  height: 100%;
+  width: 8%;
+  right: 0;
+  color: rgba(white, 0.3);
+  transition: 0.5s;
+  &:hover {
+    color: white;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  }
+}
+
+.control-pause {
+  position: absolute;
+  top: 40%;
+  color: rgba(white, 0.5);
+  font-size: 150px;
+  left: calc(50% - 10vh);
+  opacity: 0;
+  transition: 1s;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .indicators {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
 .indicator {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  background-color: blue;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(#fff, 0.2);
+  border-radius: 50%;
   cursor: pointer;
   user-select: none;
+  transition: 0.5s;
+  &:hover {
+    box-shadow: 0 0 8px #ffffff;
+    border: 3px solid rgba(#fff, 0.8);
+  }
   &.active {
-    background-color: green;
+    box-shadow: 0 0 8px #ffffff;
+    background-color: rgba(#fff, 0.5);
+    &:hover {
+      background-color: rgba(#fff, 0.8);
+    }
   }
 }

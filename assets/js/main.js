@@ -11,7 +11,7 @@ Carousel.prototype = {
         this.CODE_RIGHT_ARROW = 'ArrowRight';
         this.CODE_Space = 'Space';
 
-        this.interval = 1000;
+        this.interval = 2000;
         this.currentSlide = 0;
         this.isPlaying = true;
         this.FA_PAUSE = '<i class="fas fa-pause-circle"></i>';
